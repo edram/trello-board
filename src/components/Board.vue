@@ -29,6 +29,7 @@
         :id="'card'+card.id"
         draggable
         @dragstart="handleCardDragstart($event,index,list2)"
+        :data-index="index"
         class="board-card"
         v-for="(card,index) in list2"
         :key="card.id"
@@ -62,8 +63,6 @@ export default {
       // ev.currentTarget.style.background = "#000";
       this.dragCardIndex = index;
       this.dragCardList = list;
-
-      ev.dataTransfer.setData("text/plain", ev.target.id);
     },
     handleCardDragover(ev) {
       // ev.currentTarget.style.background = "lightblue";
